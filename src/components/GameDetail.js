@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { smallImage } from "../util";
 
-const GameDetail = () => {
+const GameDetail = ({ pathId }) => {
   const history = useHistory();
   const { screen, game, isLoading } = useSelector((state) => state.detail);
   const exitDetailHandler = (e) => {
@@ -18,10 +19,10 @@ const GameDetail = () => {
     <>
       {!isLoading && (
         <CardShadow className="shadow" onClick={exitDetailHandler}>
-          <Detail>
+          <Detail layoutId={pathId}>
             <Stats>
               <div className="rating">
-                <h3>{game.name}</h3>
+                <motion.h3 layoutId={`title ${pathId}`}>{game.name}</motion.h3>
                 <p>Rating: {game.rating}</p>
               </div>
               <Info>
@@ -35,13 +36,21 @@ const GameDetail = () => {
               </Info>
             </Stats>
             <Media>
-              <img src={game.background_image} alt="" />
+              <motion.img
+                layoutId={`image ${pathId}`}
+                src={smallImage(game.background_image, 1280)}
+                alt=""
+              />
             </Media>
             <Description>{game.description}</Description>
             <Galery>
               {screen.results &&
                 screen.results.map((screen) => (
-                  <img key={screen.id} src={screen.image} alt="" />
+                  <img
+                    key={screen.id}
+                    src={smallImage(screen.image, 1280)}
+                    alt=""
+                  />
                 ))}
             </Galery>
           </Detail>
@@ -59,6 +68,7 @@ const CardShadow = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
   &::-webkit-scrollbar {
     width: 0.5rem;
   }

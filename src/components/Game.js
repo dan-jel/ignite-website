@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { loadDetail } from "../actions/datailAction";
 import { Link, useHistory } from "react-router-dom";
+import { smallImage } from "../util";
 
 const Game = ({ name, released, image, id }) => {
+  const stringID = id.toString();
   const history = useHistory();
   if (history.location.pathname === "/") {
     document.body.style.overflow = "auto";
@@ -18,11 +20,15 @@ const Game = ({ name, released, image, id }) => {
     dispatch(loadDetail(id));
   };
   return (
-    <StyledGame onClick={loadDetailHandler}>
+    <StyledGame layoutId={stringID} onClick={loadDetailHandler}>
       <Link to={`/game/${id}`}>
-        <h3>{name}</h3>
+        <motion.h3 layoutId={`title ${stringID}`}>{name}</motion.h3>
         <p>{released}</p>
-        <img src={image} alt={name} />
+        <motion.img
+          layoutId={`image ${stringID}`}
+          src={smallImage(image, 640)}
+          alt={name}
+        />
       </Link>
     </StyledGame>
   );
