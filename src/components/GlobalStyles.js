@@ -11,10 +11,10 @@ const GlobalStyles = createGlobalStyle`
             width:0.5rem;
         }
         &::-webkit-scrollbar-thumb{
-            background-color: darkgray;
+            background-color: #c0c0c0;
         }
         &::-webkit-scrollbar-track {
-        background: white;
+        background: #1a1a1a;
         }
     }
     body{
@@ -25,17 +25,17 @@ const GlobalStyles = createGlobalStyle`
         font-size:3rem;
         font-family: "Abril Fatface", cursive;
         font-weight: lighter;
-        color: #333;
+        color: white;
     }
     h3{
         font-size: 1.3rem;
-        color: #333;
-        padding: 1.5rem 0rem;
+        color:white;
+        padding: 1rem 0rem;
     }
     p{
         font-size: 1.2rem;
         line-height: 200%;
-        color: #696969;
+        color: #c0c0c0;
     }
     a{
         text-decoration: none;

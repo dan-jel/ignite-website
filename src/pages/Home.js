@@ -70,6 +70,7 @@ const GameList = styled(motion.div)`
   h2 {
     padding: 5rem 0rem;
   }
+  background-color: #1a1a1a;
 `;
 
 const Games = styled(motion.div)`

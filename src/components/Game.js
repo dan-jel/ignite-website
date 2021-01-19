@@ -46,6 +46,7 @@ const StyledGame = styled(motion.div)`
     height: 40vh;
     object-fit: cover;
   }
+  background-color: #333333;
 `;
 
 export default Game;

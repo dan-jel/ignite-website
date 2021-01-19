@@ -8,3 +8,5 @@ $ docker build -f Dockerfile.prod -t ignite .
 $ docker run -d -it -p 80:80 --rm ignite
 
 ---
+
+all game infos from https://rawg.io/apidocs
