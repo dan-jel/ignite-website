@@ -68,11 +68,11 @@ const GameDetail = ({ pathId }) => {
         <CardShadow className="shadow" onClick={exitDetailHandler}>
           <Detail layoutId={pathId}>
             <Stats>
-              <div className="rating">
+              <Rating>
                 <motion.h2 layoutId={`title ${pathId}`}>{game.name}</motion.h2>
                 <p>Rating: {game.rating}</p>
                 {getStars()}
-              </div>
+              </Rating>
               <Info>
                 <h3>Platforms:</h3>
                 <Platforms>
@@ -144,6 +144,16 @@ const Detail = styled(motion.div)`
   img {
     width: 100%;
   }
+  @media (max-width: 600px) {
+    width: 90%;
+    left: 5%;
+    top: 1.5rem;
+    padding: 0rem 2rem;
+  }
+`;
+
+const Rating = styled(motion.div)`
+  width: 100%;
 `;
 
 const Stats = styled(motion.div)`
@@ -161,6 +171,13 @@ const Stats = styled(motion.div)`
   p {
     color: white;
   }
+  @media (max-width: 600px) {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
 `;
 
 const Info = styled(motion.div)`
@@ -170,13 +187,24 @@ const Info = styled(motion.div)`
     padding-left: 3rem;
     color: white;
   }
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 0;
+    h3 {
+      padding: 1rem;
+    }
+  }
 `;
 
 const Platforms = styled(motion.div)`
-  display: flex;
-  justify-content: space-evenly;
   img {
     margin-left: 3rem;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    img {
+      margin-left: 0;
+    }
   }
 `;
 
@@ -185,10 +213,16 @@ const Media = styled(motion.div)`
   img {
     width: 100%;
   }
+  @media (max-width: 600px) {
+    margin-top: 2rem;
+  }
 `;
 
 const Description = styled(motion.div)`
   margin: 5rem 0rem;
+  @media (max-width: 600px) {
+    margin: 2rem 0rem;
+  }
 `;
 
 const Galery = styled(motion.div)`
