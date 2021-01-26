@@ -172,11 +172,9 @@ const Stats = styled(motion.div)`
     color: white;
   }
   @media (max-width: 600px) {
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
